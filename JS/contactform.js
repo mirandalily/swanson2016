@@ -63,7 +63,6 @@ var renderAllComments = function() {
   });
 };
 
-
 var commentSubmit = function(event) {
   event.preventDefault();
 
@@ -78,6 +77,8 @@ var commentSubmit = function(event) {
   console.log('Comment by ' + event.target.name.value + ' at ' + Date());
   event.target.name.value = null;
   event.target.comment.value = null;
+
+  localStorage.setItem('savedComment', JSON.stringify(newComment));
 
   commentData.push(newComment);
   renderAllComments();
