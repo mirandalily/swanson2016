@@ -1,9 +1,9 @@
-// Global
+// Global vars
 var comments = document.getElementById('commentdisplay');
 var commentForm = document.getElementById('commentform');
 var commentData = [];
-//Contact Form
 
+//Contact Form
 var Contact = function (firstName, lastName, concern) {
   this.firstName = firstName;
   this.lastName = lastName;
@@ -56,8 +56,8 @@ var renderAllComments = function() {
   comments.innerHTML = '';
   commentData.forEach(function(comment) {
     commentdisplay.appendChild(render(comment));
-  });
-};
+  })
+}
 
 function checkLocal () {
   if (localStorage.commentData) {
@@ -70,7 +70,7 @@ function checkLocal () {
     var Jerry = new Comment('Jerry/Gary/Larry Gergich', 'Ron has cried twice in his life. Once, when he was 7 and was hit by a bus, and again when he learned that L\'il Sebastian had passed. That\'s the kind of man I\'d like to see as President.');
     var Burt = new Comment('Burt Macklin, FBI','Burt Macklin. FBI. You thought I was dead? So did the President\'s enimies.');
   }
-}; checkLocal();
+} checkLocal();
 
 var commentSubmit = function(event) {
   event.preventDefault();
@@ -89,7 +89,7 @@ var commentSubmit = function(event) {
 
   localStorage.setItem('commentData', JSON.stringify(commentData));
   renderAllComments();
-};
+}
 
 commentForm.addEventListener('submit', commentSubmit);
 renderAllComments();
